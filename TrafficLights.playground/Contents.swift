@@ -6,12 +6,21 @@ import PlaygroundSupport
 // デフォルトだとPlaygroundではTimerクラスを継続的に処理させることができないため、できるように記述
 PlaygroundPage.current.needsIndefiniteExecution = true
 
-// 特定の時間が経過後に起動し、指定されたメッセージをターゲットに送信するタイマー
-   var timer: Timer?
-   var count: Int = 0
-   var limit: Int = 60
-
-
+class TrafficLights {
+    enum LightColor {  // 信号機の３色を構造体を表すenumで定義
+        case red
+        case blue
+        case yellow
+    }
+    
+    var currentColor = LightColor.red  // 初期値として赤からスタート
+    
+    // 特定の時間が経過後に起動し、指定されたメッセージをターゲットに送信するタイマー
+    var timer: Timer?
+    var count: Int = 0
+    var limit: Int = 60
+    
+    
     func start() {
         // 任意の箇所でTimerクラスを使用して1秒ごとにcountup()メソッドを実行させるタイマーをセット
         timer = Timer.scheduledTimer(      // 以下タイマー設定デフォルト
@@ -22,3 +31,4 @@ PlaygroundPage.current.needsIndefiniteExecution = true
             repeats: true                  // 繰り返し処理を実行する場合はtrue
         )
     }
+}
