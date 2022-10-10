@@ -64,5 +64,7 @@ class TrafficLights {
             }
         }
     }
-
 }
+
+let trafficLights = TrafficLights()
+trafficLights.start()
